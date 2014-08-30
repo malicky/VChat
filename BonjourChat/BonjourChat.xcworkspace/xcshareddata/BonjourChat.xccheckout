@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F85998C8-7555-409E-B6B3-ED6ED11695E3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BonjourChat</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>42D8579C-CD86-4A77-9A25-F990828C282B</key>
+		<string>https://github.com/Cocoanetics/Examples.git</string>
+		<key>82CBFBFA-9905-4DE4-A229-3331CB8989E1</key>
+		<string>https://github.com/Cocoanetics/DTFoundation.git</string>
+		<key>E75926D9-E1A6-459D-AD6C-61DFA6F7C1FF</key>
+		<string>https://github.com/Cocoanetics/DTBonjour.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BonjourChat/BonjourChat.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>42D8579C-CD86-4A77-9A25-F990828C282B</key>
+		<string>../..</string>
+		<key>82CBFBFA-9905-4DE4-A229-3331CB8989E1</key>
+		<string>../../Externals/DTFoundation</string>
+		<key>E75926D9-E1A6-459D-AD6C-61DFA6F7C1FF</key>
+		<string>../../Externals/DTBonjour</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Cocoanetics/Examples.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>42D8579C-CD86-4A77-9A25-F990828C282B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E75926D9-E1A6-459D-AD6C-61DFA6F7C1FF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DTBonjour</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>82CBFBFA-9905-4DE4-A229-3331CB8989E1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DTFoundation</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>42D8579C-CD86-4A77-9A25-F990828C282B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ExamplesDT</string>
+		</dict>
+	</array>
+</dict>
+</plist>

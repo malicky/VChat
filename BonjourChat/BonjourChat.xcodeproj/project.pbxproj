@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01B6633229FB42E39B62DE8F /* libPods-BonjourChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 829CDA4CC96345C6B9377D30 /* libPods-BonjourChat.a */; };
+		1316223019A8B0F600FED11F /* RTSPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1316222B19A8B0F600FED11F /* RTSPServer.m */; };
+		1316223119A8B0F600FED11F /* RTSPClientConnection.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1316222D19A8B0F600FED11F /* RTSPClientConnection.mm */; };
+		1316223219A8B0F600FED11F /* RTSPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1316222F19A8B0F600FED11F /* RTSPMessage.m */; };
+		1316223C19A8B14200FED11F /* NALUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1316223419A8B14200FED11F /* NALUnit.cpp */; };
+		1316223D19A8B14200FED11F /* AVEncoder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1316223719A8B14200FED11F /* AVEncoder.mm */; };
+		1316223E19A8B14200FED11F /* VideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1316223919A8B14200FED11F /* VideoEncoder.m */; };
+		1316223F19A8B14200FED11F /* MP4Atom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1316223B19A8B14200FED11F /* MP4Atom.m */; };
+		1316224419A8B1F400FED11F /* CameraServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1316224319A8B1F400FED11F /* CameraServer.m */; };
+		1316224619A8B25700FED11F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1316224519A8B25700FED11F /* CoreVideo.framework */; };
+		1316224819A8B28400FED11F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1316224719A8B28400FED11F /* CoreMedia.framework */; };
+		1316227D19AB47B600FED11F /* VDLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1316227C19AB47B600FED11F /* VDLViewController.m */; };
+		133F510919A539C9003AC252 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F510619A539C9003AC252 /* AVCamViewController.m */; };
+		133F510A19A539C9003AC252 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F510819A539C9003AC252 /* AVCamPreviewView.m */; };
+		133F513719A53A2E003AC252 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 133F513619A53A2E003AC252 /* AVFoundation.framework */; };
+		133F513919A53A49003AC252 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 133F513819A53A49003AC252 /* AssetsLibrary.framework */; };
+		133F514319A53A9D003AC252 /* DTBonjourDataChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F513B19A53A9D003AC252 /* DTBonjourDataChunk.m */; };
+		133F514419A53A9D003AC252 /* DTBonjourDataConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F513D19A53A9D003AC252 /* DTBonjourDataConnection.m */; };
+		133F514519A53A9D003AC252 /* DTBonjourServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F513F19A53A9D003AC252 /* DTBonjourServer.m */; };
+		133F514619A53A9D003AC252 /* NSScanner+DTBonjour.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F514119A53A9D003AC252 /* NSScanner+DTBonjour.m */; };
+		133F514919A53E0C003AC252 /* AVChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F514819A53E0C003AC252 /* AVChatViewController.m */; };
+		133F514C19A5433C003AC252 /* NSString+DTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F514B19A5433C003AC252 /* NSString+DTUtilities.m */; };
+		A7003EC31646E92100CE6F37 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7003EC21646E92100CE6F37 /* MobileCoreServices.framework */; };
+		A7003EC51646E92900CE6F37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7003EC41646E92900CE6F37 /* QuartzCore.framework */; };
+		A7003EC816470A0700CE6F37 /* BonjourChatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A7003EC716470A0700CE6F37 /* BonjourChatClient.m */; };
+		A78258DC1646D83D00F54871 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78258DB1646D83D00F54871 /* UIKit.framework */; };
+		A78258DE1646D83D00F54871 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78258DD1646D83D00F54871 /* Foundation.framework */; };
+		A78258E01646D83D00F54871 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78258DF1646D83D00F54871 /* CoreGraphics.framework */; };
+		A78258E61646D83D00F54871 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A78258E41646D83D00F54871 /* InfoPlist.strings */; };
+		A78258E81646D83D00F54871 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A78258E71646D83D00F54871 /* main.m */; };
+		A78258EC1646D83D00F54871 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A78258EB1646D83D00F54871 /* AppDelegate.m */; };
+		A78258EE1646D83D00F54871 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A78258ED1646D83D00F54871 /* Default.png */; };
+		A78258F01646D83D00F54871 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78258EF1646D83D00F54871 /* Default@2x.png */; };
+		A78258F21646D83D00F54871 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78258F11646D83D00F54871 /* Default-568h@2x.png */; };
+		A78258F51646D83D00F54871 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A78258F31646D83D00F54871 /* MainStoryboard.storyboard */; };
+		A7825A341646D9B300F54871 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7825A331646D9B300F54871 /* CoreFoundation.framework */; };
+		A7825A371646DB4A00F54871 /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7825A361646DB4A00F54871 /* ChatTableViewController.m */; };
+		A7825A3A1646DECF00F54871 /* RoomCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7825A391646DECF00F54871 /* RoomCreationViewController.m */; };
+		A7825A3D1646DFE600F54871 /* ChatRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7825A3C1646DFE600F54871 /* ChatRoomTableViewController.m */; };
+		A7825A781646E5A500F54871 /* BonjourChatServer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7825A771646E5A500F54871 /* BonjourChatServer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1316222A19A8B0F600FED11F /* RTSPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSPServer.h; sourceTree = "<group>"; };
+		1316222B19A8B0F600FED11F /* RTSPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSPServer.m; sourceTree = "<group>"; };
+		1316222C19A8B0F600FED11F /* RTSPClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSPClientConnection.h; sourceTree = "<group>"; };
+		1316222D19A8B0F600FED11F /* RTSPClientConnection.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RTSPClientConnection.mm; sourceTree = "<group>"; };
+		1316222E19A8B0F600FED11F /* RTSPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSPMessage.h; sourceTree = "<group>"; };
+		1316222F19A8B0F600FED11F /* RTSPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTSPMessage.m; sourceTree = "<group>"; };
+		1316223419A8B14200FED11F /* NALUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NALUnit.cpp; sourceTree = "<group>"; };
+		1316223519A8B14200FED11F /* NALUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NALUnit.h; sourceTree = "<group>"; };
+		1316223619A8B14200FED11F /* AVEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVEncoder.h; sourceTree = "<group>"; };
+		1316223719A8B14200FED11F /* AVEncoder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AVEncoder.mm; sourceTree = "<group>"; };
+		1316223819A8B14200FED11F /* VideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoEncoder.h; sourceTree = "<group>"; };
+		1316223919A8B14200FED11F /* VideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEncoder.m; sourceTree = "<group>"; };
+		1316223A19A8B14200FED11F /* MP4Atom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MP4Atom.h; sourceTree = "<group>"; };
+		1316223B19A8B14200FED11F /* MP4Atom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MP4Atom.m; sourceTree = "<group>"; };
+		1316224219A8B1F400FED11F /* CameraServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraServer.h; sourceTree = "<group>"; };
+		1316224319A8B1F400FED11F /* CameraServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraServer.m; sourceTree = "<group>"; };
+		1316224519A8B25700FED11F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		1316224719A8B28400FED11F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		1316227B19AB47B600FED11F /* VDLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDLViewController.h; sourceTree = "<group>"; };
+		1316227C19AB47B600FED11F /* VDLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDLViewController.m; sourceTree = "<group>"; };
+		133F510519A539C9003AC252 /* AVCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
+		133F510619A539C9003AC252 /* AVCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
+		133F510719A539C9003AC252 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
+		133F510819A539C9003AC252 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
+		133F513619A53A2E003AC252 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		133F513819A53A49003AC252 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		133F513A19A53A9D003AC252 /* DTBonjourDataChunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTBonjourDataChunk.h; sourceTree = "<group>"; };
+		133F513B19A53A9D003AC252 /* DTBonjourDataChunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTBonjourDataChunk.m; sourceTree = "<group>"; };
+		133F513C19A53A9D003AC252 /* DTBonjourDataConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTBonjourDataConnection.h; sourceTree = "<group>"; };
+		133F513D19A53A9D003AC252 /* DTBonjourDataConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTBonjourDataConnection.m; sourceTree = "<group>"; };
+		133F513E19A53A9D003AC252 /* DTBonjourServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTBonjourServer.h; sourceTree = "<group>"; };
+		133F513F19A53A9D003AC252 /* DTBonjourServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTBonjourServer.m; sourceTree = "<group>"; };
+		133F514019A53A9D003AC252 /* NSScanner+DTBonjour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScanner+DTBonjour.h"; sourceTree = "<group>"; };
+		133F514119A53A9D003AC252 /* NSScanner+DTBonjour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+DTBonjour.m"; sourceTree = "<group>"; };
+		133F514719A53E0C003AC252 /* AVChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVChatViewController.h; sourceTree = "<group>"; };
+		133F514819A53E0C003AC252 /* AVChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVChatViewController.m; sourceTree = "<group>"; };
+		133F514A19A5433C003AC252 /* NSString+DTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+DTUtilities.h"; path = "../../../DTFoundation/Core/Source/NSString+DTUtilities.h"; sourceTree = "<group>"; };
+		133F514B19A5433C003AC252 /* NSString+DTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+DTUtilities.m"; path = "../../../DTFoundation/Core/Source/NSString+DTUtilities.m"; sourceTree = "<group>"; };
+		321F3F640CDF44F78BF8392C /* Pods-BonjourChat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonjourChat.xcconfig"; path = "Pods/Pods-BonjourChat.xcconfig"; sourceTree = "<group>"; };
+		829CDA4CC96345C6B9377D30 /* libPods-BonjourChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BonjourChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7003EC21646E92100CE6F37 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A7003EC41646E92900CE6F37 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A7003EC616470A0700CE6F37 /* BonjourChatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourChatClient.h; sourceTree = "<group>"; };
+		A7003EC716470A0700CE6F37 /* BonjourChatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourChatClient.m; sourceTree = "<group>"; };
+		A78258D71646D83D00F54871 /* BonjourChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BonjourChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A78258DB1646D83D00F54871 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A78258DD1646D83D00F54871 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A78258DF1646D83D00F54871 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A78258E31646D83D00F54871 /* BonjourChat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BonjourChat-Info.plist"; sourceTree = "<group>"; };
+		A78258E51646D83D00F54871 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A78258E71646D83D00F54871 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A78258E91646D83D00F54871 /* BonjourChat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BonjourChat-Prefix.pch"; sourceTree = "<group>"; };
+		A78258EA1646D83D00F54871 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A78258EB1646D83D00F54871 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A78258ED1646D83D00F54871 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A78258EF1646D83D00F54871 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A78258F11646D83D00F54871 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A78258F41646D83D00F54871 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		A7825A331646D9B300F54871 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		A7825A351646DB4A00F54871 /* ChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewController.h; sourceTree = "<group>"; };
+		A7825A361646DB4A00F54871 /* ChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewController.m; sourceTree = "<group>"; };
+		A7825A381646DECF00F54871 /* RoomCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCreationViewController.h; sourceTree = "<group>"; };
+		A7825A391646DECF00F54871 /* RoomCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCreationViewController.m; sourceTree = "<group>"; };
+		A7825A3B1646DFE600F54871 /* ChatRoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomTableViewController.h; sourceTree = "<group>"; };
+		A7825A3C1646DFE600F54871 /* ChatRoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomTableViewController.m; sourceTree = "<group>"; };
+		A7825A761646E5A500F54871 /* BonjourChatServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourChatServer.h; sourceTree = "<group>"; };
+		A7825A771646E5A500F54871 /* BonjourChatServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourChatServer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A78258D41646D83D00F54871 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1316224819A8B28400FED11F /* CoreMedia.framework in Frameworks */,
+				1316224619A8B25700FED11F /* CoreVideo.framework in Frameworks */,
+				133F513919A53A49003AC252 /* AssetsLibrary.framework in Frameworks */,
+				133F513719A53A2E003AC252 /* AVFoundation.framework in Frameworks */,
+				A7003EC51646E92900CE6F37 /* QuartzCore.framework in Frameworks */,
+				A7003EC31646E92100CE6F37 /* MobileCoreServices.framework in Frameworks */,
+				A7825A341646D9B300F54871 /* CoreFoundation.framework in Frameworks */,
+				A78258DC1646D83D00F54871 /* UIKit.framework in Frameworks */,
+				A78258DE1646D83D00F54871 /* Foundation.framework in Frameworks */,
+				A78258E01646D83D00F54871 /* CoreGraphics.framework in Frameworks */,
+				01B6633229FB42E39B62DE8F /* libPods-BonjourChat.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1316223319A8B10200FED11F /* RTSP */ = {
+			isa = PBXGroup;
+			children = (
+				1316224219A8B1F400FED11F /* CameraServer.h */,
+				1316224319A8B1F400FED11F /* CameraServer.m */,
+				1316224019A8B15900FED11F /* AVEncoder */,
+				1316224119A8B19D00FED11F /* Server */,
+			);
+			name = RTSP;
+			sourceTree = "<group>";
+		};
+		1316224019A8B15900FED11F /* AVEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				1316223419A8B14200FED11F /* NALUnit.cpp */,
+				1316223519A8B14200FED11F /* NALUnit.h */,
+				1316223619A8B14200FED11F /* AVEncoder.h */,
+				1316223719A8B14200FED11F /* AVEncoder.mm */,
+				1316223819A8B14200FED11F /* VideoEncoder.h */,
+				1316223919A8B14200FED11F /* VideoEncoder.m */,
+				1316223A19A8B14200FED11F /* MP4Atom.h */,
+				1316223B19A8B14200FED11F /* MP4Atom.m */,
+			);
+			name = AVEncoder;
+			sourceTree = "<group>";
+		};
+		1316224119A8B19D00FED11F /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				1316222A19A8B0F600FED11F /* RTSPServer.h */,
+				1316222B19A8B0F600FED11F /* RTSPServer.m */,
+				1316222C19A8B0F600FED11F /* RTSPClientConnection.h */,
+				1316222D19A8B0F600FED11F /* RTSPClientConnection.mm */,
+				1316222E19A8B0F600FED11F /* RTSPMessage.h */,
+				1316222F19A8B0F600FED11F /* RTSPMessage.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		1316227E19AB47BD00FED11F /* VDL */ = {
+			isa = PBXGroup;
+			children = (
+				1316227B19AB47B600FED11F /* VDLViewController.h */,
+				1316227C19AB47B600FED11F /* VDLViewController.m */,
+			);
+			name = VDL;
+			sourceTree = "<group>";
+		};
+		133F513519A539D9003AC252 /* AVCam */ = {
+			isa = PBXGroup;
+			children = (
+				133F510519A539C9003AC252 /* AVCamViewController.h */,
+				133F510619A539C9003AC252 /* AVCamViewController.m */,
+				133F510719A539C9003AC252 /* AVCamPreviewView.h */,
+				133F510819A539C9003AC252 /* AVCamPreviewView.m */,
+				133F514719A53E0C003AC252 /* AVChatViewController.h */,
+				133F514819A53E0C003AC252 /* AVChatViewController.m */,
+			);
+			name = AVCam;
+			path = ../BonjourChat;
+			sourceTree = "<group>";
+		};
+		133F514219A53A9D003AC252 /* DTBonjour */ = {
+			isa = PBXGroup;
+			children = (
+				133F514A19A5433C003AC252 /* NSString+DTUtilities.h */,
+				133F514B19A5433C003AC252 /* NSString+DTUtilities.m */,
+				133F513A19A53A9D003AC252 /* DTBonjourDataChunk.h */,
+				133F513B19A53A9D003AC252 /* DTBonjourDataChunk.m */,
+				133F513C19A53A9D003AC252 /* DTBonjourDataConnection.h */,
+				133F513D19A53A9D003AC252 /* DTBonjourDataConnection.m */,
+				133F513E19A53A9D003AC252 /* DTBonjourServer.h */,
+				133F513F19A53A9D003AC252 /* DTBonjourServer.m */,
+				133F514019A53A9D003AC252 /* NSScanner+DTBonjour.h */,
+				133F514119A53A9D003AC252 /* NSScanner+DTBonjour.m */,
+			);
+			name = DTBonjour;
+			path = DTBonjour/Core/Source;
+			sourceTree = "<group>";
+		};
+		A78258CC1646D83D00F54871 = {
+			isa = PBXGroup;
+			children = (
+				A7D269CB16C54B460096BD40 /* Externals */,
+				A78258E11646D83D00F54871 /* BonjourChat */,
+				A78258DA1646D83D00F54871 /* Frameworks */,
+				A78258D81646D83D00F54871 /* Products */,
+				321F3F640CDF44F78BF8392C /* Pods-BonjourChat.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		A78258D81646D83D00F54871 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A78258D71646D83D00F54871 /* BonjourChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A78258DA1646D83D00F54871 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1316224719A8B28400FED11F /* CoreMedia.framework */,
+				1316224519A8B25700FED11F /* CoreVideo.framework */,
+				133F513819A53A49003AC252 /* AssetsLibrary.framework */,
+				133F513619A53A2E003AC252 /* AVFoundation.framework */,
+				A7003EC41646E92900CE6F37 /* QuartzCore.framework */,
+				A7003EC21646E92100CE6F37 /* MobileCoreServices.framework */,
+				A7825A331646D9B300F54871 /* CoreFoundation.framework */,
+				A78258DF1646D83D00F54871 /* CoreGraphics.framework */,
+				A78258DD1646D83D00F54871 /* Foundation.framework */,
+				A78258DB1646D83D00F54871 /* UIKit.framework */,
+				829CDA4CC96345C6B9377D30 /* libPods-BonjourChat.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A78258E11646D83D00F54871 /* BonjourChat */ = {
+			isa = PBXGroup;
+			children = (
+				A78258EA1646D83D00F54871 /* AppDelegate.h */,
+				A78258EB1646D83D00F54871 /* AppDelegate.m */,
+				A78258F31646D83D00F54871 /* MainStoryboard.storyboard */,
+				A7825A351646DB4A00F54871 /* ChatTableViewController.h */,
+				A7825A361646DB4A00F54871 /* ChatTableViewController.m */,
+				A7825A381646DECF00F54871 /* RoomCreationViewController.h */,
+				A7825A391646DECF00F54871 /* RoomCreationViewController.m */,
+				A7825A3B1646DFE600F54871 /* ChatRoomTableViewController.h */,
+				A7825A3C1646DFE600F54871 /* ChatRoomTableViewController.m */,
+				A7003EC616470A0700CE6F37 /* BonjourChatClient.h */,
+				A7003EC716470A0700CE6F37 /* BonjourChatClient.m */,
+				A7825A761646E5A500F54871 /* BonjourChatServer.h */,
+				A7825A771646E5A500F54871 /* BonjourChatServer.m */,
+				A78258E21646D83D00F54871 /* Supporting Files */,
+			);
+			path = BonjourChat;
+			sourceTree = "<group>";
+		};
+		A78258E21646D83D00F54871 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A78258E31646D83D00F54871 /* BonjourChat-Info.plist */,
+				A78258E41646D83D00F54871 /* InfoPlist.strings */,
+				A78258E71646D83D00F54871 /* main.m */,
+				A78258E91646D83D00F54871 /* BonjourChat-Prefix.pch */,
+				A78258ED1646D83D00F54871 /* Default.png */,
+				A78258EF1646D83D00F54871 /* Default@2x.png */,
+				A78258F11646D83D00F54871 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7D269CB16C54B460096BD40 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				1316227E19AB47BD00FED11F /* VDL */,
+				1316223319A8B10200FED11F /* RTSP */,
+				133F514219A53A9D003AC252 /* DTBonjour */,
+				133F513519A539D9003AC252 /* AVCam */,
+			);
+			name = Externals;
+			path = ../Externals;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A78258D61646D83D00F54871 /* BonjourChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A78258FB1646D83D00F54871 /* Build configuration list for PBXNativeTarget "BonjourChat" */;
+			buildPhases = (
+				2AF172199C2F49A48FE67752 /* Check Pods Manifest.lock */,
+				A78258D31646D83D00F54871 /* Sources */,
+				A78258D41646D83D00F54871 /* Frameworks */,
+				A78258D51646D83D00F54871 /* Resources */,
+				C23AF59C3F9F409AA2D90F56 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BonjourChat;
+			productName = BonjourChat;
+			productReference = A78258D71646D83D00F54871 /* BonjourChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A78258CE1646D83D00F54871 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Oliver Drobnik";
+			};
+			buildConfigurationList = A78258D11646D83D00F54871 /* Build configuration list for PBXProject "BonjourChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A78258CC1646D83D00F54871;
+			productRefGroup = A78258D81646D83D00F54871 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A78258D61646D83D00F54871 /* BonjourChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A78258D51646D83D00F54871 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A78258E61646D83D00F54871 /* InfoPlist.strings in Resources */,
+				A78258EE1646D83D00F54871 /* Default.png in Resources */,
+				A78258F01646D83D00F54871 /* Default@2x.png in Resources */,
+				A78258F21646D83D00F54871 /* Default-568h@2x.png in Resources */,
+				A78258F51646D83D00F54871 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2AF172199C2F49A48FE67752 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C23AF59C3F9F409AA2D90F56 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-BonjourChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A78258D31646D83D00F54871 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A78258E81646D83D00F54871 /* main.m in Sources */,
+				A78258EC1646D83D00F54871 /* AppDelegate.m in Sources */,
+				1316223119A8B0F600FED11F /* RTSPClientConnection.mm in Sources */,
+				133F510A19A539C9003AC252 /* AVCamPreviewView.m in Sources */,
+				1316223F19A8B14200FED11F /* MP4Atom.m in Sources */,
+				1316223219A8B0F600FED11F /* RTSPMessage.m in Sources */,
+				A7825A371646DB4A00F54871 /* ChatTableViewController.m in Sources */,
+				133F514419A53A9D003AC252 /* DTBonjourDataConnection.m in Sources */,
+				A7825A3A1646DECF00F54871 /* RoomCreationViewController.m in Sources */,
+				A7825A3D1646DFE600F54871 /* ChatRoomTableViewController.m in Sources */,
+				1316223019A8B0F600FED11F /* RTSPServer.m in Sources */,
+				1316227D19AB47B600FED11F /* VDLViewController.m in Sources */,
+				A7825A781646E5A500F54871 /* BonjourChatServer.m in Sources */,
+				A7003EC816470A0700CE6F37 /* BonjourChatClient.m in Sources */,
+				133F510919A539C9003AC252 /* AVCamViewController.m in Sources */,
+				1316223C19A8B14200FED11F /* NALUnit.cpp in Sources */,
+				133F514619A53A9D003AC252 /* NSScanner+DTBonjour.m in Sources */,
+				133F514519A53A9D003AC252 /* DTBonjourServer.m in Sources */,
+				133F514319A53A9D003AC252 /* DTBonjourDataChunk.m in Sources */,
+				1316224419A8B1F400FED11F /* CameraServer.m in Sources */,
+				133F514919A53E0C003AC252 /* AVChatViewController.m in Sources */,
+				133F514C19A5433C003AC252 /* NSString+DTUtilities.m in Sources */,
+				1316223E19A8B14200FED11F /* VideoEncoder.m in Sources */,
+				1316223D19A8B14200FED11F /* AVEncoder.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A78258E41646D83D00F54871 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A78258E51646D83D00F54871 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A78258F31646D83D00F54871 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A78258F41646D83D00F54871 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A78258F91646D83D00F54871 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A78258FA1646D83D00F54871 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A78258FC1646D83D00F54871 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 321F3F640CDF44F78BF8392C /* Pods-BonjourChat.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BonjourChat/BonjourChat-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = "BonjourChat/BonjourChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../Externals/DTBonjour/** ../Externals/DTFoundation/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A78258FD1646D83D00F54871 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 321F3F640CDF44F78BF8392C /* Pods-BonjourChat.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BonjourChat/BonjourChat-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = "BonjourChat/BonjourChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../Externals/DTBonjour/** ../Externals/DTFoundation/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A78258D11646D83D00F54871 /* Build configuration list for PBXProject "BonjourChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A78258F91646D83D00F54871 /* Debug */,
+				A78258FA1646D83D00F54871 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A78258FB1646D83D00F54871 /* Build configuration list for PBXNativeTarget "BonjourChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A78258FC1646D83D00F54871 /* Debug */,
+				A78258FD1646D83D00F54871 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A78258CE1646D83D00F54871 /* Project object */;
+}

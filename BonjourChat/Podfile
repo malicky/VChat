@@ -1,0 +1,5 @@
+target "BonjourChat" do
+
+pod 'MobileVLCKit'
+
+end
