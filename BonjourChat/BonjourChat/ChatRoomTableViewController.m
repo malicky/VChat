@@ -34,7 +34,7 @@ extern void * SessionRunningAndDeviceAuthorizedContext;
 	NSMutableArray *_createdRooms;
 	NSNetServiceBrowser *_serviceBrowser;
     NSMutableArray *_foundServicesIpAdresses;
-    AVChatViewController *_destination;
+   // AVChatViewController *_destination;
     BonjourChatServer *_bonjourChatServer;
 }
 
@@ -162,14 +162,14 @@ extern void * SessionRunningAndDeviceAuthorizedContext;
     }
     else 	if ([[segue identifier] isEqualToString:@"ChatRoom"])
     {
-        _destination = (AVChatViewController *)[segue destinationViewController];
+        AVChatViewController *destination = (AVChatViewController *)[segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         if (indexPath.section==0)
         {
             // own server
-            _destination.chatRoom = _createdRooms[indexPath.row];
-            _destination.otherVDLChatRoom = nil;
+            destination.chatRoom = _createdRooms[indexPath.row];
+            destination.otherVDLChatRoom = nil;
             self.navigationItem.rightBarButtonItem.enabled = NO;//Disable new owner chat rooms
             //});
         }
@@ -177,12 +177,12 @@ extern void * SessionRunningAndDeviceAuthorizedContext;
         {
             
             // other person's server
-            _destination.chatRoom = _foundServices[indexPath.row];
-            _destination.ipAdressOfOtherRoom = _foundServicesIpAdresses[indexPath.row];
-            _destination.otherVDLChatRoom = [[VDLViewController alloc]initWithData:_destination.ipAdressOfOtherRoom];
-            [_destination addChildViewController:_destination.otherVDLChatRoom];
-            [_destination.view addSubview:_destination.otherVDLChatRoom.view];
-            [_destination.otherVDLChatRoom didMoveToParentViewController:_destination];
+            destination.chatRoom = _foundServices[indexPath.row];
+            destination.ipAdressOfOtherRoom = _foundServicesIpAdresses[indexPath.row];
+            destination.otherVDLChatRoom = [[VDLViewController alloc]initWithData:destination.ipAdressOfOtherRoom];
+            [destination addChildViewController:destination.otherVDLChatRoom];
+            [destination.view addSubview:destination.otherVDLChatRoom.view];
+            [destination.otherVDLChatRoom didMoveToParentViewController:destination];
             
             
         }
