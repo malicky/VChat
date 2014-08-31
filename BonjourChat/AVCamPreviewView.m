@@ -47,6 +47,7 @@
 
 #import "AVCamPreviewView.h"
 #import <AVFoundation/AVFoundation.h>
+#import "AVCamViewController.h"
 
 @implementation AVCamPreviewView
 - (void) awakeFromNib
@@ -56,6 +57,12 @@
    [self removeConstraints:self.constraints];
     self.translatesAutoresizingMaskIntoConstraints = YES;
     [self setNeedsUpdateConstraints];
+}
+
+- (CGSize)intrinsicContentSize
+{
+    CGRect frame = [AVCamViewController frameForDeviceTpe:IPHONE3x5];
+    return CGSizeMake(frame.size.width, frame.size.height);
 }
 
 + (Class)layerClass

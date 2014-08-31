@@ -191,52 +191,6 @@ extern void * SessionRunningAndDeviceAuthorizedContext;
 }
 
 
-void runOnMainQueueWithoutDeadlocking(void (^block)(void))
-{
-    if ([NSThread isMainThread])
-    {
-        block();
-    }
-    else
-    {
-        dispatch_sync(dispatch_get_main_queue(), block);
-    }
-}
-
-//- (void)ipAdressAndPort:(NSNetService *)service // not working
-//{
-//    char addressBuffer[INET6_ADDRSTRLEN];
-//
-//    for (NSData *data in service.addresses)
-//    {
-//        memset(addressBuffer, 0, INET6_ADDRSTRLEN);
-//
-//        typedef union {
-//            struct sockaddr sa;
-//            struct sockaddr_in ipv4;
-//            struct sockaddr_in6 ipv6;
-//        } ip_socket_address;
-//
-//        ip_socket_address *socketAddress = (ip_socket_address *)[data bytes];
-//
-//        if (socketAddress && (socketAddress->sa.sa_family == AF_INET || socketAddress->sa.sa_family == AF_INET6))
-//        {
-//            const char *addressStr = inet_ntop(
-//                                               socketAddress->sa.sa_family,
-//                                               (socketAddress->sa.sa_family == AF_INET ? (void *)&(socketAddress->ipv4.sin_addr) : (void *)&(socketAddress->ipv6.sin6_addr)),
-//                                               addressBuffer,
-//                                               sizeof(addressBuffer));
-//
-//            int port = ntohs(socketAddress->sa.sa_family == AF_INET ? socketAddress->ipv4.sin_port : socketAddress->ipv6.sin6_port);
-//
-//            if (addressStr && port)
-//            {
-//                NSLog(@"Found service at %s:%d", addressStr, port);
-//            }
-//        }
-//    }
-//}
-
 #pragma mark - NetServiceBrowser Delegate
 - (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser
            didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing

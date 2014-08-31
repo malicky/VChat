@@ -19,6 +19,7 @@
 		1316224619A8B25700FED11F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1316224519A8B25700FED11F /* CoreVideo.framework */; };
 		1316224819A8B28400FED11F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1316224719A8B28400FED11F /* CoreMedia.framework */; };
 		1316227D19AB47B600FED11F /* VDLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1316227C19AB47B600FED11F /* VDLViewController.m */; };
+		132B16DA19B301C8005E5547 /* NSString+DTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 132B16D919B301C8005E5547 /* NSString+DTUtilities.m */; };
 		133F510919A539C9003AC252 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F510619A539C9003AC252 /* AVCamViewController.m */; };
 		133F510A19A539C9003AC252 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F510819A539C9003AC252 /* AVCamPreviewView.m */; };
 		133F513719A53A2E003AC252 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 133F513619A53A2E003AC252 /* AVFoundation.framework */; };
@@ -69,6 +70,8 @@
 		1316224719A8B28400FED11F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		1316227B19AB47B600FED11F /* VDLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VDLViewController.h; sourceTree = "<group>"; };
 		1316227C19AB47B600FED11F /* VDLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VDLViewController.m; sourceTree = "<group>"; };
+		132B16D819B301C8005E5547 /* NSString+DTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DTUtilities.h"; sourceTree = "<group>"; };
+		132B16D919B301C8005E5547 /* NSString+DTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DTUtilities.m"; sourceTree = "<group>"; };
 		133F510519A539C9003AC252 /* AVCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
 		133F510619A539C9003AC252 /* AVCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
 		133F510719A539C9003AC252 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				133F513F19A53A9D003AC252 /* DTBonjourServer.m */,
 				133F514019A53A9D003AC252 /* NSScanner+DTBonjour.h */,
 				133F514119A53A9D003AC252 /* NSScanner+DTBonjour.m */,
+				132B16D819B301C8005E5547 /* NSString+DTUtilities.h */,
+				132B16D919B301C8005E5547 /* NSString+DTUtilities.m */,
 			);
 			name = DTBonjour;
 			path = DTBonjour/Core/Source;
@@ -409,6 +414,7 @@
 				1316223219A8B0F600FED11F /* RTSPMessage.m in Sources */,
 				A7825A371646DB4A00F54871 /* ChatTableViewController.m in Sources */,
 				133F514419A53A9D003AC252 /* DTBonjourDataConnection.m in Sources */,
+				132B16DA19B301C8005E5547 /* NSString+DTUtilities.m in Sources */,
 				A7825A3A1646DECF00F54871 /* RoomCreationViewController.m in Sources */,
 				A7825A3D1646DFE600F54871 /* ChatRoomTableViewController.m in Sources */,
 				1316223019A8B0F600FED11F /* RTSPServer.m in Sources */,
