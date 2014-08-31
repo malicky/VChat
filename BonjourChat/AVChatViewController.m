@@ -110,6 +110,8 @@
         [self.view addSubview:self.otherVDLChatRoom.view];
         [self.otherVDLChatRoom didMoveToParentViewController:self];
         self.previewView.draggable = YES;
+        [self.otherVDLChatRoom rotate];
+
         CGRect previewView = self.previewView.frame;
         CGRect otherVDLChatRoomview = self.otherVDLChatRoom.view.frame;
         NSLog(@"frame previewView %@", NSStringFromCGRect(previewView));

@@ -82,7 +82,8 @@
 }
 
 - (void)rotate {
-    if (self.noRotate == FALSE) {
+    //if (self.noRotate == FALSE)
+    {
         CGFloat h = self.movieView.bounds.size.height;
         CGFloat w = self.movieView.bounds.size.width;
         
@@ -92,6 +93,7 @@
         // Repositions and resizes the view.
         CGRect contentRect = CGRectMake(0,0, h, w);
         self.movieView.bounds = contentRect;
+        self.movieView.frame = contentRect;
     }
 }
 
@@ -142,7 +144,7 @@
     [preview removeConstraints:preview.constraints];
     preview.translatesAutoresizingMaskIntoConstraints = NO;
     [preview setNeedsUpdateConstraints];
-    preview.frame = CGRectMake (0, 0, 50. ,50);
+   // preview.frame = CGRectMake (0, 0, 50. ,50);
     [avc.view bringSubviewToFront:preview];
 }
 
