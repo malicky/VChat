@@ -5,60 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F85998C8-7555-409E-B6B3-ED6ED11695E3</string>
+	<string>DFB410BE-2C7E-4C02-AD27-0223B1BEE376</string>
 	<key>IDESourceControlProjectName</key>
 	<string>BonjourChat</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>42D8579C-CD86-4A77-9A25-F990828C282B</key>
-		<string>https://github.com/Cocoanetics/Examples.git</string>
-		<key>82CBFBFA-9905-4DE4-A229-3331CB8989E1</key>
-		<string>https://github.com/Cocoanetics/DTFoundation.git</string>
-		<key>E75926D9-E1A6-459D-AD6C-61DFA6F7C1FF</key>
-		<string>https://github.com/Cocoanetics/DTBonjour.git</string>
+		<key>ED182EF3-54F6-4829-8A3C-EFE500B120E0</key>
+		<string>https://github.com/malicky/VChat.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BonjourChat/BonjourChat.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>42D8579C-CD86-4A77-9A25-F990828C282B</key>
+		<key>ED182EF3-54F6-4829-8A3C-EFE500B120E0</key>
 		<string>../..</string>
-		<key>82CBFBFA-9905-4DE4-A229-3331CB8989E1</key>
-		<string>../../Externals/DTFoundation</string>
-		<key>E75926D9-E1A6-459D-AD6C-61DFA6F7C1FF</key>
-		<string>../../Externals/DTBonjour</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Cocoanetics/Examples.git</string>
+	<string>https://github.com/malicky/VChat.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>42D8579C-CD86-4A77-9A25-F990828C282B</string>
+	<string>ED182EF3-54F6-4829-8A3C-EFE500B120E0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E75926D9-E1A6-459D-AD6C-61DFA6F7C1FF</string>
+			<string>ED182EF3-54F6-4829-8A3C-EFE500B120E0</string>
 			<key>IDESourceControlWCCName</key>
-			<string>DTBonjour</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>82CBFBFA-9905-4DE4-A229-3331CB8989E1</string>
-			<key>IDESourceControlWCCName</key>
-			<string>DTFoundation</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>42D8579C-CD86-4A77-9A25-F990828C282B</string>
-			<key>IDESourceControlWCCName</key>
-			<string>ExamplesDT</string>
+			<string>BonjourVideoChat copy</string>
 		</dict>
 	</array>
 </dict>

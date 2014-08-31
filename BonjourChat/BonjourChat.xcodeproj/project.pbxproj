@@ -28,7 +28,6 @@
 		133F514519A53A9D003AC252 /* DTBonjourServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F513F19A53A9D003AC252 /* DTBonjourServer.m */; };
 		133F514619A53A9D003AC252 /* NSScanner+DTBonjour.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F514119A53A9D003AC252 /* NSScanner+DTBonjour.m */; };
 		133F514919A53E0C003AC252 /* AVChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F514819A53E0C003AC252 /* AVChatViewController.m */; };
-		133F514C19A5433C003AC252 /* NSString+DTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F514B19A5433C003AC252 /* NSString+DTUtilities.m */; };
 		A7003EC31646E92100CE6F37 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7003EC21646E92100CE6F37 /* MobileCoreServices.framework */; };
 		A7003EC51646E92900CE6F37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7003EC41646E92900CE6F37 /* QuartzCore.framework */; };
 		A7003EC816470A0700CE6F37 /* BonjourChatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A7003EC716470A0700CE6F37 /* BonjourChatClient.m */; };
@@ -86,8 +85,6 @@
 		133F514119A53A9D003AC252 /* NSScanner+DTBonjour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScanner+DTBonjour.m"; sourceTree = "<group>"; };
 		133F514719A53E0C003AC252 /* AVChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVChatViewController.h; sourceTree = "<group>"; };
 		133F514819A53E0C003AC252 /* AVChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVChatViewController.m; sourceTree = "<group>"; };
-		133F514A19A5433C003AC252 /* NSString+DTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+DTUtilities.h"; path = "../../../DTFoundation/Core/Source/NSString+DTUtilities.h"; sourceTree = "<group>"; };
-		133F514B19A5433C003AC252 /* NSString+DTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+DTUtilities.m"; path = "../../../DTFoundation/Core/Source/NSString+DTUtilities.m"; sourceTree = "<group>"; };
 		321F3F640CDF44F78BF8392C /* Pods-BonjourChat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonjourChat.xcconfig"; path = "Pods/Pods-BonjourChat.xcconfig"; sourceTree = "<group>"; };
 		829CDA4CC96345C6B9377D30 /* libPods-BonjourChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BonjourChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7003EC21646E92100CE6F37 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -206,8 +203,6 @@
 		133F514219A53A9D003AC252 /* DTBonjour */ = {
 			isa = PBXGroup;
 			children = (
-				133F514A19A5433C003AC252 /* NSString+DTUtilities.h */,
-				133F514B19A5433C003AC252 /* NSString+DTUtilities.m */,
 				133F513A19A53A9D003AC252 /* DTBonjourDataChunk.h */,
 				133F513B19A53A9D003AC252 /* DTBonjourDataChunk.m */,
 				133F513C19A53A9D003AC252 /* DTBonjourDataConnection.h */,
@@ -427,7 +422,6 @@
 				133F514319A53A9D003AC252 /* DTBonjourDataChunk.m in Sources */,
 				1316224419A8B1F400FED11F /* CameraServer.m in Sources */,
 				133F514919A53E0C003AC252 /* AVChatViewController.m in Sources */,
-				133F514C19A5433C003AC252 /* NSString+DTUtilities.m in Sources */,
 				1316223E19A8B14200FED11F /* VideoEncoder.m in Sources */,
 				1316223D19A8B14200FED11F /* AVEncoder.mm in Sources */,
 			);
