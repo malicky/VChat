@@ -17,7 +17,9 @@ target/
 DerivedData/
 GFFrameworks/
 malickyoula/
+xcshareddata/
 
+*..xccheckout
 *.framework
 *.pbxuser
 *.perspective
