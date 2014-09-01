@@ -68,4 +68,5 @@ typedef enum{
 @property (nonatomic, strong) VDLViewController * otherVDLChatRoom;
 
 + (CGRect)frameForDeviceTpe:(DeviceType)type;
+@property (nonatomic) BOOL mustRotate;
 @end

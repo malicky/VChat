@@ -33,6 +33,6 @@
 - (instancetype)initWithData:(NSData*)data;
 - (IBAction)playandPause:(id)sender;
 @property (nonatomic, assign) BOOL noRotate;
-- (void)rotate;
+- (void)rotate:(BOOL)yes;
 
 @end

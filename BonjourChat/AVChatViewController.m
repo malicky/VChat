@@ -16,7 +16,8 @@
 #import "ChatRoomTableViewController.h"
 #import "VDLViewController.h"
 
-@interface AVChatViewController () <DTBonjourDataConnectionDelegate, DTBonjourServerDelegate>
+@interface AVChatViewController () <DTBonjourDataConnectionDelegate, DTBonjourServerDelegate,
+NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 
 @end
 
@@ -24,8 +25,34 @@
 {
     BonjourChatServer *_server;
     BonjourChatClient *_client;
+    
+    NSMutableSet *_unidentifiedServices;
+    NSMutableArray *_foundServices;
+    NSMutableArray *_createdRooms;
+    NSNetServiceBrowser *_serviceBrowser;
+    NSMutableArray *_foundServicesIpAdresses;
+    // AVChatViewController *_destination;
+    BonjourChatServer *_bonjourChatServer;
 }
 
+
+- (void)awakeFromNib
+{
+	_foundServices = [[NSMutableArray alloc] init];
+	_createdRooms = [[NSMutableArray alloc] init];
+	_unidentifiedServices = [[NSMutableSet alloc] init];
+    _foundServicesIpAdresses = [[NSMutableArray alloc] init];
+    
+	
+	_serviceBrowser = [[NSNetServiceBrowser alloc] init];
+	_serviceBrowser.delegate = self;
+	[_serviceBrowser searchForServicesOfType:@"_BonjourVideoChat._tcp." inDomain:@""];
+    
+    _bonjourChatServer = [[BonjourChatServer alloc] initWithRoomName:@"Me"];
+	[_createdRooms addObject:_bonjourChatServer];
+	[_bonjourChatServer start];
+    
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,17 +65,80 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    if ( self.ipAdressOfOtherRoom ) {
-        NSString *ipAdressOfOtherRoom = [[NSString alloc] initWithData:self.ipAdressOfOtherRoom encoding:NSUTF8StringEncoding];
-        NSLog(@"Opponent iP Adress = %@", ipAdressOfOtherRoom);
-        
-       // [self.view removeConstraints:self.previewView.constraints];
-      //  self.previewView.frame = CGRectMake(0, 0, 150, 150);
-    }
+   
+    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"sessionRunningAndDeviceAuthorized" object:nil queue:mainQueue
+                                                  usingBlock:^(NSNotification *notification)
+     {
+         NSString *message = [NSString stringWithFormat:@"sessionRunningAndDeviceAuthorized %@ ", __AppDelegate.deviceType];
+         NSLog(@"%@", message);
+     }];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"shutdownCamSessionAndBonjourServer" object:nil queue:mainQueue
+                                                  usingBlock:^(NSNotification *notification)
+     {
+         NSString *message = [NSString stringWithFormat:@"shutdownCamSessionAndBonjourServer %@ ", __AppDelegate.deviceType];
+         NSLog(@"%@", message);
+     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"sessionRunningAndDeviceRestarted" object:nil queue:mainQueue
+                                                  usingBlock:^(NSNotification *notification)
+     {
+         NSString *message = [NSString stringWithFormat:@"sessionRunningAndDeviceRestarted %@ ", __AppDelegate.deviceType];
+         NSLog(@"%@", message);
+     }];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"clientConnectedNotifivation" object:nil queue:mainQueue
+                                                  usingBlock:^(NSNotification *notification)
+     {
+//         NSString *message = [NSString stringWithFormat:@"clientConnectedNotifivation %@ ", __AppDelegate.deviceType];
+//         NSLog(@"%@", message);
+//         [self connect:notification];
+//         [[NSNotificationCenter defaultCenter] removeObserver:self];
+     }];
+
 }
 
+- (void) connect:(NSNotification *)notification
+{
+    if ([_foundServices count]) {
+        // other person's server
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 
+        self.chatRoom = _foundServices[0];
+
+        
+        NSNetService *service = self.chatRoom;
+		NSDictionary *dict = [NSNetService dictionaryFromTXTRecordData:service.TXTRecordData];
+		NSString *roomName = [[NSString alloc] initWithData:dict[@"RoomName"] encoding:NSUTF8StringEncoding];
+        NSString *roomIpAdress = [[NSString alloc] initWithData:dict[@"ipAdress"] encoding:NSUTF8StringEncoding];
+        
+        self.ipAdressOfOtherRoom = _foundServicesIpAdresses[0];
+        self.otherVDLChatRoom = [[VDLViewController alloc]initWithData:self.ipAdressOfOtherRoom];
+        [self addChildViewController:self.otherVDLChatRoom];
+        [self.view addSubview:self.otherVDLChatRoom.view];
+        self.otherVDLChatRoom.view.frame = self.view.bounds;
+        
+        [self.otherVDLChatRoom didMoveToParentViewController:self];
+        });
+        
+        
+    } else
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[[UIAlertView alloc] initWithTitle:@"Info"
+                                        message:@"no opened Other Room"
+                                       delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+            
+        });
+    }
+
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -86,11 +176,38 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
+#pragma mark - Storyboard
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"ChatRoom"])
+    {
+        AVChatViewController *destination = (AVChatViewController *)[segue destinationViewController];
+        if (0)
+        {
+            // own server
+            destination.chatRoom = _createdRooms[0];
+            destination.otherVDLChatRoom = nil;
+            self.navigationItem.rightBarButtonItem.enabled = NO;//Disable new owner chat rooms
+            //});
+        }
+        else
+        {
+            
+            // other person's server
+            destination.chatRoom = _foundServices[0];
+            destination.ipAdressOfOtherRoom = _foundServicesIpAdresses[0];
+            destination.otherVDLChatRoom = [[VDLViewController alloc]initWithData:destination.ipAdressOfOtherRoom];
+            [destination addChildViewController:destination.otherVDLChatRoom];
+            [destination.view addSubview:destination.otherVDLChatRoom.view];
+            [destination.otherVDLChatRoom didMoveToParentViewController:destination];
+            
+        }
+    }
+    
 }
+
 
 
 #pragma mark - DTBonjourServer Delegate (Server)
@@ -109,17 +226,6 @@
         [self addChildViewController:self.otherVDLChatRoom];
         [self.view addSubview:self.otherVDLChatRoom.view];
         [self.otherVDLChatRoom didMoveToParentViewController:self];
-        self.previewView.draggable = YES;
-        [self.otherVDLChatRoom rotate];
-//set to zero the origin because of some strange values may happend
-        CGRect r = self.otherVDLChatRoom.view.frame;
-        r.origin.x = r.origin.y = 0.;
-        self.otherVDLChatRoom.view.frame = r;
-        
-        CGRect previewView = self.previewView.frame;
-        CGRect otherVDLChatRoomview = self.otherVDLChatRoom.view.frame;
-        NSLog(@"frame previewView %@", NSStringFromCGRect(previewView));
-        NSLog(@"frame otherVDLChatRoomview %@", NSStringFromCGRect(otherVDLChatRoomview));
 
     });
    
@@ -167,4 +273,124 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
+
+- (BOOL)_isLocalServiceIdentifier:(NSString *)identifier
+{
+	for (BonjourChatServer *server in _createdRooms)
+	{
+		if ([server.identifier isEqualToString:identifier])
+		{
+			return YES;
+		}
+	}
+	
+	return NO;
+}
+
+- (void)_updateFoundServices
+{
+	BOOL didUpdate = NO;
+	
+	for (NSNetService *service in [_unidentifiedServices copy])
+	{
+		NSDictionary *dict = [NSNetService dictionaryFromTXTRecordData:service.TXTRecordData];
+		
+		if (!dict)
+		{
+			continue;
+		}
+		
+		NSString *identifier = [[NSString alloc] initWithData:dict[@"ID"] encoding:NSUTF8StringEncoding];
+        NSString *ipString = dict[@"ipAdress"];
+        
+		if (![self _isLocalServiceIdentifier:identifier])
+		{
+			[_foundServices addObject:service];
+            [_foundServicesIpAdresses addObject:ipString];
+            
+			didUpdate = YES;
+		}
+		
+		[_unidentifiedServices removeObject:service];
+	}
+	
+	if (didUpdate)
+	{
+	//	[self.tableView reloadData];
+	}
+}
+
+
+#pragma mark - NetServiceBrowser Delegate
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser
+           didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
+{
+	aNetService.delegate = self;
+	[aNetService startMonitoring];
+	
+	[_unidentifiedServices addObject:aNetService];
+	
+	NSLog(@"found: %@", aNetService);
+	
+	if (!moreComing)
+	{
+		[self _updateFoundServices];
+	}
+}
+
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser
+         didRemoveService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
+{
+	[_foundServices removeObject:aNetService];
+    
+	[_unidentifiedServices removeObject:aNetService];
+	
+	NSLog(@"removed: %@", aNetService);
+	
+	if (!moreComing)
+	{
+		//[self.tableView reloadData];
+	}
+}
+
+#pragma mark - NSNetService Delegate
+- (void)netService:(NSNetService *)sender didUpdateTXTRecordData:(NSData *)data
+{
+	[self _updateFoundServices];
+	
+	[sender stopMonitoring];
+}
+
+- (void)netServiceDidResolveAddress:(NSNetService *)sender
+{
+    
+}
+
+
+- (IBAction)connectOther:(UIBarButtonItem *)sender {
+    
+    if ([_foundServices count]) {
+        // other person's server
+        self.chatRoom = _foundServices[0];
+        self.ipAdressOfOtherRoom = _foundServicesIpAdresses[0];
+        self.otherVDLChatRoom = [[VDLViewController alloc]initWithData:self.ipAdressOfOtherRoom];
+        [self addChildViewController:self.otherVDLChatRoom];
+        [self.view addSubview:self.otherVDLChatRoom.view];
+        self.otherVDLChatRoom.view.frame = self.view.bounds;
+        
+        [self.otherVDLChatRoom didMoveToParentViewController:self];
+        
+     
+    } else
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[[UIAlertView alloc] initWithTitle:@"Info"
+                                        message:@"no opened Other Room"
+                                       delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+
+        });
+    }
+}
 @end

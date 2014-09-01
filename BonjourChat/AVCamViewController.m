@@ -296,7 +296,15 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
 #if defined (USE_FACETIME)
     return;
 #endif
-	[[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] setVideoOrientation:(AVCaptureVideoOrientation)toInterfaceOrientation];
+    
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+        toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        self.mustRotate = YES;
+    } else {
+        self.mustRotate = NO;
+    }
+    
+   [[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] setVideoOrientation:(AVCaptureVideoOrientation)toInterfaceOrientation];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

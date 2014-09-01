@@ -118,6 +118,7 @@ static void onSocket (
         {
             NSLog(@"Client connected");
             [_connections addObject:conn];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"clientConnectedNotifivation" object:conn];
         }
     }
     

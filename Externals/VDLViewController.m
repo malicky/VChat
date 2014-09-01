@@ -27,7 +27,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "AppDelegate.h"
 #import "AVCamViewController.h"
-
+#import "AVCamPreviewView.h"
 //#define debug
 
 @interface VDLViewController ()
@@ -81,19 +81,12 @@
     
 }
 
-- (void)rotate {
-    //if (self.noRotate == FALSE)
+- (void)rotate:(BOOL)must {
+    if (must)
     {
-        CGFloat h = self.movieView.bounds.size.height;
-        CGFloat w = self.movieView.bounds.size.width;
         
         CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI);
         self.movieView.transform = transform;
-        
-        // Repositions and resizes the view.
-        CGRect contentRect = CGRectMake(0,0, h, w);
-        self.movieView.bounds = contentRect;
-        self.movieView.frame = contentRect;
     }
 }
 
@@ -134,18 +127,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)willMoveToParentViewController:(UIViewController *)parent
-{
-}
 - (void)didMoveToParentViewController:(UIViewController *)parent
 {
     AVCamViewController *avc = (AVCamViewController *)parent;
     UIView *preview = (UIView *)avc.previewView;
-    [preview removeConstraints:preview.constraints];
-    preview.translatesAutoresizingMaskIntoConstraints = NO;
-    [preview setNeedsUpdateConstraints];
-   // preview.frame = CGRectMake (0, 0, 50. ,50);
+    preview.frame = CGRectMake (0, 0, 100. ,100);
     [avc.view bringSubviewToFront:preview];
+    avc.previewView.draggable = YES;
+    BOOL mustRotate = avc.mustRotate;
+    [avc.otherVDLChatRoom rotate:mustRotate];
+#if 0
+    //set to zero the origin because of some strange values may happend
+    CGRect r = avc.otherVDLChatRoom.view.frame;
+    r.origin.x = r.origin.y = 0.;
+    avc.otherVDLChatRoom.view.frame = r;
+    
+    NSLog(@"frame previewView %@", NSStringFromCGRect(avc.previewView.frame));
+    NSLog(@"frame otherVDLChatRoomview %@", NSStringFromCGRect(avc.otherVDLChatRoom.view.frame));
+#endif
+    
 }
+
+
 
 @end
