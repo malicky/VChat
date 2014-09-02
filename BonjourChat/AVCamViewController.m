@@ -282,8 +282,7 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
 #endif
     
 	// Disable autorotation of the interface when recording is in progress.
-	//return ![self lockInterfaceRotation];
-    return YES;
+	return ![self lockInterfaceRotation];
 }
 
 - (NSUInteger)supportedInterfaceOrientations
@@ -293,16 +292,13 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-#if defined (USE_FACETIME)
-    return;
-#endif
     
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
-        toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        self.mustRotate = YES;
-    } else {
-        self.mustRotate = NO;
-    }
+//    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+//        toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+//        self.mustRotate = YES;
+//    } else {
+//        self.mustRotate = NO;
+//    }
     
    [[(AVCaptureVideoPreviewLayer *)[[self previewView] layer] connection] setVideoOrientation:(AVCaptureVideoOrientation)toInterfaceOrientation];
 }

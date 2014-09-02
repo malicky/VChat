@@ -82,7 +82,8 @@
 }
 
 - (void)rotate:(BOOL)must {
-    if (must)
+   // return;
+   // if (must)
     {
         
         CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI);
