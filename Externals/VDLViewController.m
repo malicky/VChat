@@ -75,9 +75,10 @@
     //_mediaplayer.media = [VLCMedia mediaWithURL:[NSURL URLWithString:@"http://streams.videolan.org/streams/mp4/Mr_MrsSmith-h264_aac.mp4"]];
     
     NSString* urlString = urlString = [NSString stringWithFormat:@"rtsp://%@/", _ipAdressOpponent];
-
-      _mediaplayer.media = [VLCMedia mediaWithURL:[NSURL URLWithString:urlString]];
+    _mediaplayer.media = [VLCMedia mediaWithURL:[NSURL URLWithString:urlString]];
     [_mediaplayer play];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"mediaPlayerPlayingNotification" object:self];
     
 }
 
@@ -115,11 +116,14 @@
     if (currentState == VLCMediaPlayerStateEnded || currentState == VLCMediaPlayerStateStopped) {
         [self performSelector:@selector(closePlayback:) withObject:nil afterDelay:2.];
     }
+    
+  
 }
 
 - (IBAction)closePlayback:(id)sender
 {
     //[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"mediaPlayerStoppingNotification" object:self];
 }
 
 - (void)didReceiveMemoryWarning

@@ -107,10 +107,10 @@ static void ListeningSocketCallback(CFSocketRef s, CFSocketCallBackType type, CF
 		
 		_connections = [[NSMutableSet alloc] init];
 		
-#if TARGET_OS_IPHONE
+
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
-#endif
+
 	}
 	
 	return self;
@@ -330,8 +330,9 @@ static void ListeningSocketCallback(CFSocketRef s, CFSocketCallBackType type, CF
     
     if (_delegate && [_delegate isKindOfClass:[AVChatViewController class]]) {
         NSLog(@"restarting all...");
-        [[CameraServer sharedInstance] initWithCamViewController:(AVChatViewController*)_delegate];
-        [[CameraServer sharedInstance] restartSession];
+        [(AVChatViewController*)_delegate restartCameraServer];
+       // [[CameraServer sharedInstance] initWithCamViewController:(AVChatViewController*)_delegate];
+        //[[CameraServer sharedInstance] restartSession];
     }
 }
 

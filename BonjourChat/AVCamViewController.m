@@ -252,7 +252,6 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
         @try {
             [[NSNotificationCenter defaultCenter] removeObserver:self name:AVCaptureDeviceSubjectAreaDidChangeNotification object:[[self videoDeviceInput] device]];
             [[NSNotificationCenter defaultCenter] removeObserver:[self runtimeErrorHandlingObserver]];
-          //  [[NSNotificationCenter defaultCenter] postNotificationName:@"shutdownCamSessionAndBonjourServer" object:self];
 
             [self removeObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" context:SessionRunningAndDeviceAuthorizedContext];
             [self removeObserver:self forKeyPath:@"stillImageOutput.capturingStillImage" context:CapturingStillImageContext];

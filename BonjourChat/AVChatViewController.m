@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "ChatRoomTableViewController.h"
 #import "VDLViewController.h"
+#import "CameraServer.h"
 
 @interface AVChatViewController () <DTBonjourDataConnectionDelegate, DTBonjourServerDelegate,
 NSNetServiceBrowserDelegate, NSNetServiceDelegate>
@@ -33,6 +34,8 @@ NSNetServiceBrowserDelegate, NSNetServiceDelegate>
     NSMutableArray *_foundServicesIpAdresses;
     // AVChatViewController *_destination;
     BonjourChatServer *_bonjourChatServer;
+    BOOL _mediaPlayerPlaying;
+    IBOutlet UIBarButtonItem *_barButtonConnect;
 }
 
 
@@ -91,15 +94,53 @@ NSNetServiceBrowserDelegate, NSNetServiceDelegate>
      }];
     
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"clientConnectedNotifivation" object:nil queue:mainQueue
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"mediaPlayerPlayingNotification" object:nil queue:mainQueue
                                                   usingBlock:^(NSNotification *notification)
      {
-//         NSString *message = [NSString stringWithFormat:@"clientConnectedNotifivation %@ ", __AppDelegate.deviceType];
-//         NSLog(@"%@", message);
-//         [self connect:notification];
-//         [[NSNotificationCenter defaultCenter] removeObserver:self];
-     }];
+         NSString *message = [NSString stringWithFormat:@"mediaPlayerPlayingNotification %@ ", __AppDelegate.deviceType];
+         NSLog(@"%@", message);
 
+         _mediaPlayerPlaying = YES;
+         _barButtonConnect.enabled = !_mediaPlayerPlaying;
+     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"mediaPlayerStoppingNotification" object:nil queue:mainQueue
+                                                  usingBlock:^(NSNotification *notification)
+     {
+         NSString *message = [NSString stringWithFormat:@"mediaPlayerStoppingNotification %@ ", __AppDelegate.deviceType];
+         NSLog(@"%@", message);
+         
+         _mediaPlayerPlaying = NO;
+         _barButtonConnect.enabled = !_mediaPlayerPlaying;
+
+     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"UIApplicationDidEnterBackgroundNotification" object:nil queue:mainQueue
+                                                  usingBlock:^(NSNotification *notification)
+     {
+         NSString *message = [NSString stringWithFormat:@"UIApplicationDidEnterBackgroundNotification %@ ", __AppDelegate.deviceType];
+         NSLog(@"%@", message);
+         
+         [self shutdown];
+     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"UIApplicationWillEnterForegroundNotification" object:nil queue:mainQueue
+                                                  usingBlock:^(NSNotification *notification)
+     {
+         NSString *message = [NSString stringWithFormat:@"UIApplicationWillEnterForegroundNotification %@ ", __AppDelegate.deviceType];
+         NSLog(@"%@", message);
+         
+         [self restartCameraServer];
+     }];
+}
+
+- (void) restartCameraServer {
+    [[CameraServer sharedInstance] initWithCamViewController:self];
+    [[CameraServer sharedInstance] restartSession];
+}
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void) connect:(NSNotification *)notification

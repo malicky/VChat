@@ -11,4 +11,6 @@
 @interface AVChatViewController : AVCamViewController
 @property (nonatomic, strong) id chatRoom;
 @property (nonatomic, strong) NSData * ipAdressOfOtherRoom;
+
+- (void) restartCameraServer;
 @end

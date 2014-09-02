@@ -56,6 +56,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="_barButtonConnect" destination="8Wn-WD-SQo" id="Bc1-tq-VfI"/>
                         <outlet property="camButton" destination="Dwm-Qm-gfc" id="9zi-DE-ny3"/>
                         <outlet property="previewView" destination="8Py-lP-is9" id="8oq-AA-X26"/>
                     </connections>
