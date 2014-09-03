@@ -44,8 +44,6 @@
 		A78258F51646D83D00F54871 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A78258F31646D83D00F54871 /* MainStoryboard.storyboard */; };
 		A7825A341646D9B300F54871 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7825A331646D9B300F54871 /* CoreFoundation.framework */; };
 		A7825A371646DB4A00F54871 /* ChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7825A361646DB4A00F54871 /* ChatTableViewController.m */; };
-		A7825A3A1646DECF00F54871 /* RoomCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7825A391646DECF00F54871 /* RoomCreationViewController.m */; };
-		A7825A3D1646DFE600F54871 /* ChatRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7825A3C1646DFE600F54871 /* ChatRoomTableViewController.m */; };
 		A7825A781646E5A500F54871 /* BonjourChatServer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7825A771646E5A500F54871 /* BonjourChatServer.m */; };
 /* End PBXBuildFile section */
 
@@ -111,10 +109,6 @@
 		A7825A331646D9B300F54871 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		A7825A351646DB4A00F54871 /* ChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTableViewController.h; sourceTree = "<group>"; };
 		A7825A361646DB4A00F54871 /* ChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTableViewController.m; sourceTree = "<group>"; };
-		A7825A381646DECF00F54871 /* RoomCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomCreationViewController.h; sourceTree = "<group>"; };
-		A7825A391646DECF00F54871 /* RoomCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomCreationViewController.m; sourceTree = "<group>"; };
-		A7825A3B1646DFE600F54871 /* ChatRoomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomTableViewController.h; sourceTree = "<group>"; };
-		A7825A3C1646DFE600F54871 /* ChatRoomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatRoomTableViewController.m; sourceTree = "<group>"; };
 		A7825A761646E5A500F54871 /* BonjourChatServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonjourChatServer.h; sourceTree = "<group>"; };
 		A7825A771646E5A500F54871 /* BonjourChatServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BonjourChatServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,10 +260,6 @@
 				A78258F31646D83D00F54871 /* MainStoryboard.storyboard */,
 				A7825A351646DB4A00F54871 /* ChatTableViewController.h */,
 				A7825A361646DB4A00F54871 /* ChatTableViewController.m */,
-				A7825A381646DECF00F54871 /* RoomCreationViewController.h */,
-				A7825A391646DECF00F54871 /* RoomCreationViewController.m */,
-				A7825A3B1646DFE600F54871 /* ChatRoomTableViewController.h */,
-				A7825A3C1646DFE600F54871 /* ChatRoomTableViewController.m */,
 				A7003EC616470A0700CE6F37 /* BonjourChatClient.h */,
 				A7003EC716470A0700CE6F37 /* BonjourChatClient.m */,
 				A7825A761646E5A500F54871 /* BonjourChatServer.h */,
@@ -415,8 +405,6 @@
 				A7825A371646DB4A00F54871 /* ChatTableViewController.m in Sources */,
 				133F514419A53A9D003AC252 /* DTBonjourDataConnection.m in Sources */,
 				132B16DA19B301C8005E5547 /* NSString+DTUtilities.m in Sources */,
-				A7825A3A1646DECF00F54871 /* RoomCreationViewController.m in Sources */,
-				A7825A3D1646DFE600F54871 /* ChatRoomTableViewController.m in Sources */,
 				1316223019A8B0F600FED11F /* RTSPServer.m in Sources */,
 				1316227D19AB47B600FED11F /* VDLViewController.m in Sources */,
 				A7825A781646E5A500F54871 /* BonjourChatServer.m in Sources */,
