@@ -150,7 +150,6 @@ NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 
         self.chatRoom = _foundServices[0];
 
-        
         NSNetService *service = self.chatRoom;
 		NSDictionary *dict = [NSNetService dictionaryFromTXTRecordData:service.TXTRecordData];
 		NSString *roomName = [[NSString alloc] initWithData:dict[@"RoomName"] encoding:NSUTF8StringEncoding];
@@ -215,40 +214,6 @@ NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-#pragma mark - Storyboard
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    if ([[segue identifier] isEqualToString:@"ChatRoom"])
-    {
-        AVChatViewController *destination = (AVChatViewController *)[segue destinationViewController];
-        if (0)
-        {
-            // own server
-            destination.chatRoom = _createdRooms[0];
-            destination.otherVDLChatRoom = nil;
-            self.navigationItem.rightBarButtonItem.enabled = NO;//Disable new owner chat rooms
-            //});
-        }
-        else
-        {
-            
-            // other person's server
-            destination.chatRoom = _foundServices[0];
-            destination.ipAdressOfOtherRoom = _foundServicesIpAdresses[0];
-            destination.otherVDLChatRoom = [[VDLViewController alloc]initWithData:destination.ipAdressOfOtherRoom];
-            [destination addChildViewController:destination.otherVDLChatRoom];
-            [destination.view addSubview:destination.otherVDLChatRoom.view];
-            [destination.otherVDLChatRoom didMoveToParentViewController:destination];
-            
-        }
-    }
-    
-}
-
-
 
 #pragma mark - DTBonjourServer Delegate (Server)
 
@@ -257,29 +222,6 @@ NSNetServiceBrowserDelegate, NSNetServiceDelegate>
     self.ipAdressOfOtherRoom = [ipString dataUsingEncoding:NSUTF8StringEncoding];
     NSString *ipAdressOfOtherRoom = [[NSString alloc] initWithData:self.ipAdressOfOtherRoom encoding:NSUTF8StringEncoding];
     NSLog(@"Opponent iP Adress = %@", ipAdressOfOtherRoom);
-    
-    // Delay execution of my block for 10 seconds.
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        //_destination.chatRoom = _foundServices[indexPath.row];
-        //_destination.ipAdressOfOtherRoom = _foundServicesIpAdresses[indexPath.row];
-        self.otherVDLChatRoom = [[VDLViewController alloc]initWithData:self.ipAdressOfOtherRoom];
-        [self addChildViewController:self.otherVDLChatRoom];
-        [self.view addSubview:self.otherVDLChatRoom.view];
-        [self.otherVDLChatRoom didMoveToParentViewController:self];
-
-    });
-   
-
-//
-//    NSArray *vc = self.navigationController.viewControllers ; // YES!! it works
-//    
-//    if ([vc[0] isKindOfClass:[ChatRoomTableViewController class]]) {
-//    //  [self.navigationController popToViewController:vc[0] animated:YES];
-//        [vc[0] connectToRoom:ipAdressOfOtherRoom];
-////        [(ChatRoomTableViewController *)vc[0] performSegueWithIdentifier:@"ChatRoom" sender:self];
-//    }
-//
-//   
 
 }
 
@@ -293,8 +235,6 @@ NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 
 - (void)connection:(DTBonjourDataConnection *)connection didReceiveObject:(id)object
 {
-	//[_messages insertObject:object atIndex:0];
-	//[self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 - (void)connectionDidClose:(DTBonjourDataConnection *)connection
@@ -417,17 +357,14 @@ NSNetServiceBrowserDelegate, NSNetServiceDelegate>
         [self addChildViewController:self.otherVDLChatRoom];
         [self.view addSubview:self.otherVDLChatRoom.view];
         self.otherVDLChatRoom.view.frame = self.view.bounds;
-        
         [self.otherVDLChatRoom didMoveToParentViewController:self];
-        
-     
     } else
     {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[[UIAlertView alloc] initWithTitle:@"Info"
-                                        message:@"no opened Other Room"
+                                        message:@"Other user busy or\nOther room closed."
                                        delegate:self
-                              cancelButtonTitle:@"OK"
+                              cancelButtonTitle:@"Retry later"
                               otherButtonTitles:nil] show];
 
         });

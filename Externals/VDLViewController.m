@@ -122,7 +122,6 @@
 
 - (IBAction)closePlayback:(id)sender
 {
-    //[self.navigationController dismissViewControllerAnimated:YES completion:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"mediaPlayerStoppingNotification" object:self];
 }
 
