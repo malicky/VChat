@@ -13,7 +13,6 @@
 #import "BonjourChatClient.h"
 #import "AVCamPreviewView.h"
 #import "AppDelegate.h"
-#import "ChatRoomTableViewController.h"
 #import "VDLViewController.h"
 #import "CameraServer.h"
 
