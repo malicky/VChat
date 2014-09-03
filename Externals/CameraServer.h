@@ -20,10 +20,9 @@
 + (instancetype)sharedInstance;
 + (CameraServer*) server;
 - (void)initWithCamViewController:(AVCamViewController*)vc;
+- (void)encode:(CMSampleBufferRef)sampleBuffer;
 
 - (void) shutdown;
 - (NSString*) getURL;
-- (AVCaptureVideoPreviewLayer*) getPreviewLayer;
-- (void)restartSession;
 
 @end

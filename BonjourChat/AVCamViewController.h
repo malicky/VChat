@@ -54,7 +54,7 @@ typedef enum{
 } DeviceType;
 
 
-
+@class AVCaptureVideoPreviewLayer;
 @class AVCaptureSession;
 @class AVCamPreviewView;
 @class VDLViewController;
@@ -66,7 +66,8 @@ typedef enum{
 @property (nonatomic) dispatch_queue_t sessionQueue; // Communicate with the session and other session objects on this queue.
 @property (nonatomic, weak) IBOutlet AVCamPreviewView *previewView;
 @property (nonatomic, strong) VDLViewController * otherVDLChatRoom;
-
+- (AVCaptureVideoPreviewLayer*) getPreviewLayer;
+- (void)restartSession;
 + (CGRect)frameForDeviceTpe:(DeviceType)type;
 @property (nonatomic) BOOL mustRotate;
 @end

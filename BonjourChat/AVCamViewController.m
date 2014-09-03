@@ -57,7 +57,13 @@ static void * CapturingStillImageContext = &CapturingStillImageContext;
 static void * RecordingContext = &RecordingContext;
 void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
 
-@interface AVCamViewController () <AVCaptureFileOutputRecordingDelegate>
+@interface AVCamViewController () <AVCaptureFileOutputRecordingDelegate,
+        AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate>
+{
+    AVCaptureVideoDataOutput* _videoOutput;
+    AVCaptureAudioDataOutput* _audioOutput;
+    
+}
 
 // For use in the storyboards.
 @property (nonatomic, weak) IBOutlet UIButton *recordButton;
@@ -182,12 +188,52 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
                 [session addInput:micinput];//##
             }
             
+            
+            // create an output for YUV output with self as delegate
+            _videoOutput = [[AVCaptureVideoDataOutput alloc] init];
+            _videoOutput.alwaysDiscardsLateVideoFrames = NO;
+            NSDictionary* setcapSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange], kCVPixelBufferPixelFormatTypeKey,
+                                            nil];
+            _videoOutput.videoSettings = setcapSettings;
+            
+            if ([_session canAddOutput:_videoOutput]) {
+                [_session addOutput:_videoOutput];//##
+            }
+            [_videoOutput setSampleBufferDelegate:self queue:self.sessionQueue];
+            
+            
+            // Setup the audio output
+            //    _audioOutput = [[AVCaptureAudioDataOutput alloc] init];
+            //    [_session addOutput:_audioOutput];
+            //    [_audioOutput setSampleBufferDelegate:self queue:_captureQueue];
+            //    
+            
+            ((AVCaptureVideoPreviewLayer *)[[self previewView] layer]).videoGravity = AVLayerVideoGravityResizeAspectFill;
             [[CameraServer sharedInstance] initWithCamViewController:self];
 		}
 
 	});
 }
 
+- (AVCaptureVideoPreviewLayer*)getPreviewLayer
+{
+    return (AVCaptureVideoPreviewLayer *)[[self previewView] layer];
+}
+
+- (void) captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
+{
+    [[CameraServer sharedInstance]encode:sampleBuffer];
+}
+
+- (void)restartSession {
+    NSLog(@"restart Session");
+    if (_session)
+    {
+        [_session startRunning];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"sessionRunningAndDeviceRestarted" object:self];
+    }
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -220,6 +266,11 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
 
 - (void)shutdown {
     dispatch_async([self sessionQueue], ^{
+    if (self.session)
+    {
+        [self.session stopRunning];
+        self.session = nil;
+    }
         
     [[CameraServer sharedInstance]shutdown];
         

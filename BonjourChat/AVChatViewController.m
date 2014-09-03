@@ -135,7 +135,7 @@ NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 
 - (void) restartCameraServer {
     [[CameraServer sharedInstance] initWithCamViewController:self];
-    [[CameraServer sharedInstance] restartSession];
+    [self restartSession];
 }
 - (void)dealloc
 {
@@ -155,7 +155,7 @@ NSNetServiceBrowserDelegate, NSNetServiceDelegate>
 		NSDictionary *dict = [NSNetService dictionaryFromTXTRecordData:service.TXTRecordData];
 		NSString *roomName = [[NSString alloc] initWithData:dict[@"RoomName"] encoding:NSUTF8StringEncoding];
         NSString *roomIpAdress = [[NSString alloc] initWithData:dict[@"ipAdress"] encoding:NSUTF8StringEncoding];
-        
+        NSLog(@"connect: ... %@, %@" ,roomName ,roomIpAdress );
         self.ipAdressOfOtherRoom = _foundServicesIpAdresses[0];
         self.otherVDLChatRoom = [[VDLViewController alloc]initWithData:self.ipAdressOfOtherRoom];
         [self addChildViewController:self.otherVDLChatRoom];
