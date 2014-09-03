@@ -53,10 +53,6 @@
 #import "AVCamPreviewView.h"
 #import "CameraServer.h"
 
-
-//#define USE_FACETIME
-
-
 static void * CapturingStillImageContext = &CapturingStillImageContext;
 static void * RecordingContext = &RecordingContext;
 void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthorizedContext;
@@ -73,7 +69,6 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
 - (IBAction)toggleMovieRecording:(id)sender;
 - (IBAction)changeCamera:(id)sender;
 - (IBAction)snapStillImage:(id)sender;
-- (IBAction)testFacetime:(id)sender;
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer;
 
 // Session management.
@@ -112,13 +107,6 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
         self.edgesForExtendedLayout = UIRectEdgeNone;   // iOS 7 specific
     }
 
-#if defined (USE_FACETIME)
-    // Check for device authorization
-	[self checkDeviceAuthorizationStatus];
-
-    return;
-#endif
-	
 	
 	// Setup the preview view
     CGRect frame = [AVCamViewController frameForDeviceTpe:IPHONE3x5];
@@ -201,24 +189,10 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
 }
 
 
-- (void)viewDidAppear:(BOOL)animated {
-#if defined (USE_FACETIME)
-    [super viewDidAppear:animated];
-    [self testFacetime:nil];
-    
-    return;
-#endif
-}
-
-
 - (void)viewWillAppear:(BOOL)animated
 {
-    
-#if defined (USE_FACETIME)
     [super viewWillAppear:animated];
-
-    return;
-#endif
+ 
 	dispatch_async([self sessionQueue], ^{
 		[self addObserver:self forKeyPath:@"sessionRunningAndDeviceAuthorized" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:SessionRunningAndDeviceAuthorizedContext];
 		[self addObserver:self forKeyPath:@"stillImageOutput.capturingStillImage" options:(NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew) context:CapturingStillImageContext];
@@ -275,10 +249,6 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
 
 - (BOOL)shouldAutorotate
 {
-    
-#if defined (USE_FACETIME)
-    return YES;
-#endif
     
 	// Disable autorotation of the interface when recording is in progress.
 	return ![self lockInterfaceRotation];
@@ -483,30 +453,10 @@ void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDeviceAuthor
 	});
 }
 
-- (IBAction)testFacetime:(id)sender {
-    
-    NSURL *telURL = nil;
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        telURL = [NSURL URLWithString:@"facetime://m.youla@icloud.com"];
-    } else {
-        telURL = [NSURL URLWithString:@"facetime://myoula@videotron.ca"];
-    }
-#if 0
-    [[UIApplication sharedApplication] openURL: telURL];
-#else
-    UIWebView *mCallWebview = [[UIWebView alloc] init]  ;
-    [self.view addSubview:mCallWebview];
-    [mCallWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
-#endif
-}
 
 - (IBAction)focusAndExposeTap:(UIGestureRecognizer *)gestureRecognizer
 {
-    
-#if defined (USE_FACETIME)
-    [self testFacetime:nil];
-    return;
-#endif
+
     
 	CGPoint devicePoint = [(AVCaptureVideoPreviewLayer *)[[self previewView] layer] captureDevicePointOfInterestForPoint:[gestureRecognizer locationInView:[gestureRecognizer view]]];
 	[self focusWithMode:AVCaptureFocusModeAutoFocus exposeWithMode:AVCaptureExposureModeAutoExpose atDevicePoint:devicePoint monitorSubjectAreaChange:YES];
